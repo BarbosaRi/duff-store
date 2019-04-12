@@ -3,16 +3,20 @@
     <ion-title>
       app da cervejaria
     </ion-title>
+    <ion-buttons slot='primary'>
+      <ion-button [routerLink]='["/add-cerveja"]'>
+        <ion-icon name='add'></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  Bem vindo ao app de cerveja,mais famoso do Brasil.
+ <h3>Bem vindo ao app de cerveja,mais famoso do Brasil.</h3> 
   <br/>
   <br/>
   <h2>Conheça nossa Cervejas</h2>
   <br/>
-  <ion-button color="warning" [routerLink]="['/puro-malte']">Puro Malte</ion-button>
-  <ion-button color="danger" [routerLink]="['/pilsen']">Pilsen</ion-button>
-  <ion-button color="secondary">Lager</ion-button>
+
+
 </ion-content>
