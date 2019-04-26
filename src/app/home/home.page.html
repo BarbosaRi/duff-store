@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      app da cervejaria
+      App Loja de Cerveja
     </ion-title>
     <ion-buttons slot='primary'>
       <ion-button [routerLink]='["/add-cerveja"]'>
@@ -12,11 +12,34 @@
 </ion-header>
 
 <ion-content padding>
- <h3>Bem vindo ao app de cerveja,mais famoso do Brasil.</h3> 
+  Bem vindo ao App de Cerveja mais famoso do Brasil.
   <br/>
   <br/>
-  <h2>Conheça nossa Cervejas</h2>
-  <br/>
+  <div *ngIf="cervejas.length > 0">
+    
+    <h2>Conheça nossas Cervejas</h2>
+    <br/>
+    <div *ngFor="let cerveja of cervejas">
+      <ion-card>
+        <ion-card-content>
+            <h2>
+                {{cerveja.nome}}
+            </h2>
+            <p>
+              {{cerveja.descricao}}
+            </p>
+            <p style="text-align: right">
+              <ion-button color="danger"  fill="outline" size="small" (click)="excluir(cerveja.nome)">Excluir</ion-button>
+            </p>
+        </ion-card-content>
+        </ion-card>
+    </div>
+  </div>
+  <div *ngIf="cervejas.length === 0">
+    <p>Ainda não há cervejas cadastradas.</p>
+      <ion-button [routerLink]='["/add-cerveja"]'>Cadastrar Agora</ion-button>
+  </div>
+  
 
 
 </ion-content>
