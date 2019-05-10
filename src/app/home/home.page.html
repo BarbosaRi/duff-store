@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      App Loja de Cerveja
+      App Loja de Cerveja <ion-icon ios="ios-beer" md="md-beer"></ion-icon>
+
     </ion-title>
     <ion-buttons slot='primary'>
       <ion-button [routerLink]='["/add-cerveja"]'>
@@ -20,7 +21,7 @@
     <h2>Conheça nossas Cervejas</h2>
     <br/>
     <div *ngFor="let cerveja of cervejas">
-      <ion-card>
+      <ion-card (click)="detalhes(cerveja.nome)">
         <ion-card-content>
             <h2>
                 {{cerveja.nome}}
@@ -29,7 +30,7 @@
               {{cerveja.descricao}}
             </p>
             <p style="text-align: right">
-              <ion-button color="danger"  fill="outline" size="small" (click)="excluir(cerveja.nome)">Excluir</ion-button>
+              <ion-button color="danger"  fill="outline" size="small" (click)="excluir(cerveja.nome)">Excluir<ion-icon name='trash'> </ion-icon></ion-button>
             </p>
         </ion-card-content>
         </ion-card>

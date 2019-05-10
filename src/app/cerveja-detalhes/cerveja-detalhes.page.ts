@@ -6,25 +6,25 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './cerveja-detalhes.page.html',
   styleUrls: ['./cerveja-detalhes.page.scss'],
 })
-export class CervejaDetalhesPage implements OnInit {
+export class CervejaDetalhesPage{
 
   nome;
-  detalhes;
+  descricao;
 
   constructor(private route:ActivatedRoute) { 
     console.log("EXECUTOU O CONSTRUTOR")
   }
 
-  ngOnInit() {
-    let idCerveja = this.route.snapshot.params.id;
+mostrar(){
+  const nomeCerveja = this.route.snapshot.params.id
+  const cervejaReal = localStorage.getItem(nomeCerveja)
+  const cervejaObjeto = JSON.parse(cervejaReal)
+  this.nome = cervejaObjeto.nome
+  this.descricao = cervejaObjeto.descricao
+}
 
-    if(idCerveja === '50'){
-      this.nome = 'Proibida'
-      this.detalhes = 'Tão gostosa que é proibida. A melhor cerveja do Ceará.'
-    } else if(idCerveja === '60') {
-      this.nome = 'Skol'
-      this.detalhes = 'A puro malte que desce redondo.'
-    }
+  ionViewDidEnter() {
+   this.mostrar()
   }
 
 }
